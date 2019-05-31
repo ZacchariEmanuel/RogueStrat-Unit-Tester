@@ -41,6 +41,7 @@ namespace Unit_Test
         public virtual void OnGetOutnumbered(ref bool isOutNumbered) {
 
         }
+        public virtual void OnEndOfTurn() { }
 
         #region Damage
         //Recieve

@@ -119,6 +119,17 @@ namespace Unit_Test
 
             }
 
+            //OnEndOfTurn
+            foreach (Unit unit in tileMap.UnitsOnMap)
+                foreach (Ability ability in unit.Abilities)
+                    ability.OnEndOfTurn();
+
+            //Clean Up Stack abilities without stacks
+            foreach (Unit unit in tileMap.UnitsOnMap)
+                foreach (Ability ability in unit.Abilities)
+                    unit.Abilities.RemoveAll(ability => ability is StackAbility && ((StackAbility)ability).count <= 0);
+                    
+
             //Check for Deaths
             foreach (Unit unit in tileMap.UnitsOnMap)
                 if (unit.Health <= 0)

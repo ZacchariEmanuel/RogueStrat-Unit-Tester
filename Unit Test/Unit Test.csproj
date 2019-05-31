@@ -48,10 +48,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abilities\Ability_GangUp.cs" />
-    <Compile Include="Abilities\Ability_Unyielding.cs" />
-    <Compile Include="Abilities\Ability_Vigilant.cs" />
-    <Compile Include="Abilities\Ability_Bleeding.cs" />
+    <Compile Include="Abilities\Evergreen\Ability_Poisonous.cs" />
+    <Compile Include="Abilities\Evergreen\Ability_Sneak.cs" />
+    <Compile Include="Abilities\Evergreen\Ability_GangUp.cs" />
+    <Compile Include="Abilities\Evergreen\Ability_Duelist.cs" />
+    <Compile Include="Abilities\Evergreen\Ability_Unyielding.cs" />
+    <Compile Include="Abilities\Evergreen\Ability_Vigilant.cs" />
+    <Compile Include="Abilities\Stacks\Ability_Poisoned.cs" />
+    <Compile Include="Abilities\Stacks\Ability_Burning.cs" />
+    <Compile Include="Abilities\Stacks\Ability_Bleeding.cs" />
     <Compile Include="AttackRanges.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
