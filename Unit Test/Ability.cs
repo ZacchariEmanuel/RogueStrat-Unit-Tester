@@ -81,7 +81,11 @@ namespace Unit_Test
 
         #endregion
 
-        public virtual void OnDeath()
+        public virtual void OnThisUnitsDeath()
+        {
+
+        }
+        public virtual void OnAnotherUnitsDeath()
         {
 
         }

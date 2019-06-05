@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Unit_Test
+namespace Unit_Test.Abilities
 {
-    class Ability_Bleeding : StackAbility
+    class Bleeding : StackAbility
     {
-        public Ability_Bleeding(int count, Unit attachedUnit) : base(count, "Bleeding","Whenever this unit is damaged, take an additional X damage",attachedUnit)
+        public Bleeding(int count, Unit attachedUnit) : base(count, "Bleeding","Whenever this unit is damaged, take an additional X damage",attachedUnit)
         {
             IsEvergreenMechanic = true;
         }

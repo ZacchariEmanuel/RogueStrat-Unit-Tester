@@ -6,7 +6,8 @@ namespace Unit_Test
     public class Unit
     {
         #region Variables
-        public Tile tile;
+        public PlayerData playerDataReference;
+        public Tile tileReference;
         public string name;
         public string playerImagePath;
         public string enemyImagePath;
@@ -23,13 +24,20 @@ namespace Unit_Test
                 foreach (Ability ability in Abilities)
                     ability.OnGetOutnumbered(ref isOutnumbered);
                 return isOutnumbered; } }
-        public int xPos { get { return tile.botLeftx; } }
-        public int yPos { get { return tile.botLefty; } }
+        public int xPos { get { return tileReference.botLeftx; } }
+        public int yPos { get { return tileReference.botLefty; } }
         public List<Unit> EnemiesInAttackRange
         {
             get
             {
                 return AttackRangeFunction(this).FindAll(unit => unit.owner != this.owner);
+            }
+        }
+        public List<Unit> AlliesInAttackRange
+        {
+            get
+            {
+                return AttackRangeFunction(this).FindAll(unit => unit.owner == this.owner);
             }
         }
         #endregion
@@ -111,8 +119,8 @@ namespace Unit_Test
         }
         public virtual void ExperienceDeath() {
             //OnDeath(this, new DeathArgs(this));
-            tile.Unit = null;
-            tile.UpdateImage();
+            tileReference.unitReference = null;
+            tileReference.UpdateImage();
         }
         public virtual void AddAbility(Ability ability) {
             foreach (Ability a in Abilities)
@@ -126,6 +134,19 @@ namespace Unit_Test
                     Abilities.Add(ability);
             } 
 
+        }
+
+        public virtual void PerformCombat() {
+            if (EnemiesInAttackRange.Count == 0)
+            {
+                ref int targetHealth = ref owner == Owner.player ? ref playerDataReference.enemy_health : ref playerDataReference.player_health;
+                DealDamageToPlayer(ref targetHealth);
+            }
+            else
+            {
+                foreach (Unit enemy in EnemiesInAttackRange)
+                    DealDamage(enemy);
+            }
         }
 
     }

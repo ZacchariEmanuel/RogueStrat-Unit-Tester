@@ -25,18 +25,21 @@ namespace Unit_Test
 
         List<UnitTypeWrapper> unitTypes = new List<UnitTypeWrapper>()
         {
-            new UnitTypeWrapper(typeof(Unit_Bear)),
-            new UnitTypeWrapper(typeof(Unit_Injured_Bear)),
-            new UnitTypeWrapper(typeof(Unit_Eviscerating_Bear)),
-            new UnitTypeWrapper(typeof(Unit_Watchful_Bear)),
-            new UnitTypeWrapper(typeof(Unit_FrenzyRat))
+            new UnitTypeWrapper(typeof(Units.Helpful_Spirit)),
+            new UnitTypeWrapper(typeof(Units.Bear)),
+            new UnitTypeWrapper(typeof(Units.Dwarf)),
+            new UnitTypeWrapper(typeof(Units.Crippled_Zombie)),
+            new UnitTypeWrapper(typeof(Units.Hawk)),
+            new UnitTypeWrapper(typeof(Units.Imp)),
+            new UnitTypeWrapper(typeof(Units.Atlantean)),
+            new UnitTypeWrapper(typeof(Units.Leech)),
+            new UnitTypeWrapper(typeof(Units.Skeleton))
         };
 
         GameState gameState = GameState.PlaceUnits;
         Type selectedUnitType;
-        TileMap tileMap = new TileMap(8);
-        int playerHealth = 50;
-        int enemyHealth = 50;
+        TileMap tileMap = new TileMap(4);
+        PlayerData playerData = new PlayerData();
 
         public Form1()
         {
@@ -45,6 +48,7 @@ namespace Unit_Test
                 listboxUnits.Items.Add(u);
             DrawTileMap(tileMap);
             UpdatePlayerHealth();
+            new DeckbuilderForm().Show();
         }
 
         public void DrawTileMap(TileMap map) {
@@ -74,7 +78,7 @@ namespace Unit_Test
                     thisTile.pictureBox.MouseEnter += new EventHandler((obj, evt) => {
                         PictureBox pictureBox = (PictureBox)obj;
                         if (thisTile.hasUnit)
-                            txtUnitInfo.Text = thisTile.Unit.ToString();
+                            txtUnitInfo.Text = thisTile.unitReference.ToString();
                     });
                     thisTile.pictureBox.MouseLeave += new EventHandler((obj, evt) => {
                         PictureBox pictureBox = (PictureBox)obj;
@@ -106,17 +110,7 @@ namespace Unit_Test
             //Deal Damage
             foreach (Unit unit in tileMap.UnitsOnMap)
             {
-                if (unit.EnemiesInAttackRange.Count == 0)
-                {
-                    ref int targetHealth = ref unit.owner == Unit_Test.Owner.player ? ref enemyHealth : ref playerHealth;
-                    unit.DealDamageToPlayer(ref targetHealth);
-                }
-                else
-                {
-                    foreach (Unit enemy in unit.EnemiesInAttackRange)
-                        unit.DealDamage(enemy);
-                }
-
+                unit.PerformCombat();
             }
 
             //OnEndOfTurn
@@ -128,20 +122,30 @@ namespace Unit_Test
             foreach (Unit unit in tileMap.UnitsOnMap)
                 foreach (Ability ability in unit.Abilities)
                     unit.Abilities.RemoveAll(ability => ability is StackAbility && ((StackAbility)ability).count <= 0);
-                    
+
 
             //Check for Deaths
+            int deathCount = 0;
             foreach (Unit unit in tileMap.UnitsOnMap)
                 if (unit.Health <= 0)
+                {
+                    deathCount++;
                     unit.ExperienceDeath();
+                }
+
+            //Trigger Deathwatch Abilities
+            for(int i = 0; i < deathCount;i++)
+                foreach (Unit unit in tileMap.UnitsOnMap)
+                    foreach (Ability ability in unit.Abilities)
+                        ability.OnAnotherUnitsDeath();
 
             //Update Screen
             UpdatePlayerHealth();
         }
 
         private void UpdatePlayerHealth() {
-            lblPlayerHP.Text = "Player: " + playerHealth.ToString();
-            lblEnemyHP.Text = "Enemy: " + enemyHealth.ToString();
+            lblPlayerHP.Text = "Player: " + playerData.player_health.ToString();
+            lblEnemyHP.Text = "Enemy: " + playerData.enemy_health.ToString();
         }
 
         private void TileClicked(Tile tile) {
@@ -156,14 +160,15 @@ namespace Unit_Test
 
         private void PlaceUnit(Unit unit, Tile tile) {
 
-            unit.tile = tile;
-            tile.Unit = unit;
+            unit.tileReference = tile;
+            tile.unitReference = unit;
+            unit.playerDataReference = playerData;
             foreach (Ability ability in unit.Abilities)
             {
                 ability.OnLoad();
                 ability.OnPlace();
             }
-            txtUnitInfo.Text = tile.Unit.ToString();
+            txtUnitInfo.Text = tile.unitReference.ToString();
         }
 
         private void ListboxUnits_SelectedIndexChanged(object sender, EventArgs e)

@@ -14,7 +14,7 @@ namespace Unit_Test
             {
                 return new Func<Unit, List<Unit>>(unit =>
                 {
-                    List<Unit> t = unit.tile.parentMap.UnitsOnMap.Where(x =>
+                    List<Unit> t = unit.tileReference.parentMap.UnitsOnMap.Where(x =>
                     {
                         int delta = Math.Abs(unit.xPos - x.xPos) + Math.Abs(unit.yPos - x.yPos);
                         return delta == 1;
@@ -30,7 +30,7 @@ namespace Unit_Test
             {
                 return new Func<Unit, List<Unit>>(unit =>
                 {
-                    List<Unit> t = unit.tile.parentMap.UnitsOnMap.Where(x =>
+                    List<Unit> t = unit.tileReference.parentMap.UnitsOnMap.Where(x =>
                     {
                         int deltax = Math.Abs(unit.xPos - x.xPos);
                         int deltay = Math.Abs(unit.yPos - x.yPos);

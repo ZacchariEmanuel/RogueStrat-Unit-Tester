@@ -48,16 +48,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abilities\Evergreen\Ability_Poisonous.cs" />
-    <Compile Include="Abilities\Evergreen\Ability_Sneak.cs" />
-    <Compile Include="Abilities\Evergreen\Ability_GangUp.cs" />
-    <Compile Include="Abilities\Evergreen\Ability_Duelist.cs" />
-    <Compile Include="Abilities\Evergreen\Ability_Unyielding.cs" />
-    <Compile Include="Abilities\Evergreen\Ability_Vigilant.cs" />
-    <Compile Include="Abilities\Stacks\Ability_Poisoned.cs" />
-    <Compile Include="Abilities\Stacks\Ability_Burning.cs" />
-    <Compile Include="Abilities\Stacks\Ability_Bleeding.cs" />
+    <Compile Include="Abilities\Evergreen\Agile.cs" />
+    <Compile Include="Abilities\Evergreen\Poisonous.cs" />
+    <Compile Include="Abilities\Evergreen\Sneak.cs" />
+    <Compile Include="Abilities\Evergreen\GangUp.cs" />
+    <Compile Include="Abilities\Evergreen\Duelist.cs" />
+    <Compile Include="Abilities\Evergreen\Unyielding.cs" />
+    <Compile Include="Abilities\Evergreen\Vigilant.cs" />
+    <Compile Include="Abilities\Stacks\Bleed.cs" />
+    <Compile Include="Abilities\Stacks\Healer.cs" />
+    <Compile Include="Abilities\Stacks\Poisoned.cs" />
+    <Compile Include="Abilities\Stacks\Burning.cs" />
+    <Compile Include="Abilities\Stacks\Bleeding.cs" />
+    <Compile Include="Abilities\Evergreen\QuickStrike.cs" />
+    <Compile Include="AdvMath.cs" />
     <Compile Include="AttackRanges.cs" />
+    <Compile Include="DeckbuilderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeckbuilderForm.Designer.cs">
+      <DependentUpon>DeckbuilderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend_Addn.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,18 +77,26 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GameState.cs" />
+    <Compile Include="PlayerData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ability.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="TileMap.cs" />
     <Compile Include="Unit.cs" />
-    <Compile Include="Units\Unit_FrenzyRat.cs" />
-    <Compile Include="Units\Unit_Watchful_Bear.cs" />
-    <Compile Include="Units\Unit_Eviscerating_Bear.cs" />
-    <Compile Include="Units\Unit_Injured_Bear.cs" />
+    <Compile Include="Units\Skeleton.cs" />
+    <Compile Include="Units\Leech.cs" />
+    <Compile Include="Units\Atlantean.cs" />
+    <Compile Include="Units\Crippled_Zombie.cs" />
+    <Compile Include="Units\Imp.cs" />
+    <Compile Include="Units\Hawk.cs" />
+    <Compile Include="Units\Dwarf.cs" />
+    <Compile Include="Units\Helpful_Spirit.cs" />
     <Compile Include="UnitVariable.cs" />
-    <Compile Include="Units\Unit_Bear.cs" />
+    <Compile Include="Units\Bear.cs" />
+    <EmbeddedResource Include="DeckbuilderForm.resx">
+      <DependentUpon>DeckbuilderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

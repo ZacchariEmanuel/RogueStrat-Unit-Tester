@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace Unit_Test
 {
-    class Unit_Bear : DefaultUnit
+    static class AdvMath
     {
-        
-        public Unit_Bear():base() {
-            name = "Bear";
-            Attack = 4;
-            Health = 8;
+        static public int DivideRoundUp(int numerator, int denominator) {
+            return (numerator / denominator) + (numerator % 2);
         }
     }
 }

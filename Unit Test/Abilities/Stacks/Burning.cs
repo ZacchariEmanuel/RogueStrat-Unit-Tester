@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Unit_Test
+namespace Unit_Test.Abilities
 {
-    class Ability_Burning : StackAbility
+    class Burning : StackAbility
     {
-        public Ability_Burning(int count, Unit attachedUnit) : base(count, "Burning", "At the end of each turn, this unit takes X damage. Lessens each turn.",attachedUnit)
-        {
+        public Burning(int count, Unit attachedUnit) : base(count, "Burning", "At the end of each turn, this unit takes X damage. Lessens each turn.",attachedUnit)
+        { 
             IsEvergreenMechanic = true;
         }
         public override void OnEndOfTurn()

@@ -35,7 +35,7 @@ namespace Unit_Test
             {
                 List<Unit> units = new List<Unit>();
                 foreach (Tile tile in Tiles.Where(tile => tile.hasUnit).ToList()) {
-                    units.Add(tile.Unit);
+                    units.Add(tile.unitReference);
                 }
                 return units;
             }

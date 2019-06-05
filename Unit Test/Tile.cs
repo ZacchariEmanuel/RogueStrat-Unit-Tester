@@ -13,6 +13,7 @@ namespace Unit_Test
         public PictureBox pictureBox;
         public int x;
         public int y;
+        public bool isWater = false;
         public int botLeftx { get { return x + 1; } }
         public int botLefty { get { return parentMap.size - y; } }
 
@@ -21,7 +22,7 @@ namespace Unit_Test
         public string tileName { get { return hasUnit ? unit.name : defaultName; } }
         public string imagePath { get { return hasUnit ? (unit.owner == Owner.player ? unit.playerImagePath:unit.enemyImagePath):defaultImagePath; } }
         private Unit? unit;
-        public Unit? Unit {
+        public Unit? unitReference {
             get {
                 return unit;
             }

@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Unit_Test
+namespace Unit_Test.Abilities
 {
-    class Ability_Sneak : Ability
+    class Agile : Ability
     {
-        public Ability_Sneak(Unit attachedUnit) : base("Sneak", "Takes half damage from outnumbered enemies", attachedUnit) {
+        public Agile(Unit attachedUnit) : base("Agile", "Takes half damage, unless it is outnumbered", attachedUnit) {
             IsEvergreenMechanic = true;
         }
         public override void BeforeRecieveDamage(Unit attacker, ref int damage)
         {
-            if (attacker.isOutnumbered)
-                damage /= 2;
+            if(!attachedUnit.isOutnumbered)
+                damage = AdvMath.DivideRoundUp(damage,2);
         }
     }
 }

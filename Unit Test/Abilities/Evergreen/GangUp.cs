@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Unit_Test
+namespace Unit_Test.Abilities
 {
-    class Ability_GangUp : Ability
+    class GangUp : Ability
     {
-        public Ability_GangUp(Unit attachedUnit) : base("Gang Up", "Deals double damage to outnumbered enemies", attachedUnit) {
+        public GangUp(Unit attachedUnit) : base("Gang Up", "Deals double damage to outnumbered enemies", attachedUnit) {
             IsEvergreenMechanic = true;
         }
         public override void BeforeDamageDealt_ToUnit(Unit target, ref int damage)

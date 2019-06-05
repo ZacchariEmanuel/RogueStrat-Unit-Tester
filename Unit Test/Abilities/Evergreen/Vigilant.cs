@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Unit_Test
+namespace Unit_Test.Abilities
 {
-    class Ability_Vigilant : Ability
+    class Vigilant : Ability
     {
-            public Ability_Vigilant(Unit attachedUnit) : base("Vigilant","Also attacks diagonal tiles", attachedUnit) {
+            public Vigilant(Unit attachedUnit) : base("Vigilant","Also attacks diagonal tiles", attachedUnit) {
             IsEvergreenMechanic = true;
             }
             public override void OnLoad()

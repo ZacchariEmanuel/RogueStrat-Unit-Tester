@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Unit_Test
+namespace Unit_Test.Abilities
 {
-    class Ability_Poisonous : StackAbility
+    class Poisonous : StackAbility
     {
-        public Ability_Poisonous(int count, Unit attachedUnit) : base(count,"Poisonous", "Applies poison to enemies it attacks", attachedUnit) {
+        public Poisonous(int count, Unit attachedUnit) : base(count,"Poisonous", "Applies poison to enemies it attacks", attachedUnit) {
             IsEvergreenMechanic = true;
         }
         public override void BeforeDamageDealt_ToUnit(Unit target, ref int damage)
         {
-            target.AddAbility(new Ability_Poisoned(count, target));
+            target.AddAbility(new Poisoned(count, target));
         }
     }
 }

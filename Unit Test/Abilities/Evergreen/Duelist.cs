@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Unit_Test
+namespace Unit_Test.Abilities
 {
-    class Ability_Duelist : Ability
+    class Duelist : Ability
     {
-        public Ability_Duelist(Unit attachedUnit) : base("Duelist", "Deals double damage if not outnumbered", attachedUnit) {
+        public Duelist(Unit attachedUnit) : base("Duelist", "Deals double damage if not outnumbered", attachedUnit) {
             IsEvergreenMechanic = true;
         }
         public override void BeforeDamageDealt(ref int damage)
