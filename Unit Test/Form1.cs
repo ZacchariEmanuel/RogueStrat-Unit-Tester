@@ -177,5 +177,17 @@ namespace Unit_Test
                 selectedUnitType = unitTypes[listboxUnits.SelectedIndex].unitType;
             txtUnitInfo.Text = ((Unit)Activator.CreateInstance(selectedUnitType)).ToString();
         }
+
+        private void RunTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HeatMap hmap = new HeatMap(new Vector2Int(5, 5), new List<Vector2Int>() { new Vector2Int(2, 2) });
+            HeatMap.Heat[,] tiles = hmap.heatTiles;
+
+            int[] hits = new int[5];
+
+            for(int i = 0; i < 1000000; i++)
+                hits[hmap.GetRandomUnobstructedTile(new List<Vector2Int>() { new Vector2Int(2, 2), new Vector2Int(2, 1) }).y]++;
+            //BUGGED
+        }
     }
 }

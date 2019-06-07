@@ -39,8 +39,11 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblPlayerHP = new System.Windows.Forms.Label();
             this.lblEnemyHP = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.runTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -58,14 +61,14 @@
             this.tableLayoutPanel1.Controls.Add(this.txtUnitInfo, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.624708F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.37529F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 123F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 426);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -82,9 +85,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.listboxUnits, 2);
             this.listboxUnits.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listboxUnits.FormattingEnabled = true;
-            this.listboxUnits.Location = new System.Drawing.Point(3, 28);
+            this.listboxUnits.Location = new System.Drawing.Point(3, 25);
             this.listboxUnits.Name = "listboxUnits";
-            this.listboxUnits.Size = new System.Drawing.Size(394, 258);
+            this.listboxUnits.Size = new System.Drawing.Size(394, 237);
             this.listboxUnits.TabIndex = 1;
             this.listboxUnits.SelectedIndexChanged += new System.EventHandler(this.ListboxUnits_SelectedIndexChanged);
             // 
@@ -94,17 +97,17 @@
             this.tablelayoutGameBoard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tablelayoutGameBoard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tablelayoutGameBoard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablelayoutGameBoard.Location = new System.Drawing.Point(403, 28);
+            this.tablelayoutGameBoard.Location = new System.Drawing.Point(403, 25);
             this.tablelayoutGameBoard.Name = "tablelayoutGameBoard";
             this.tablelayoutGameBoard.RowCount = 1;
             this.tablelayoutGameBoard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tablelayoutGameBoard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 258F));
-            this.tablelayoutGameBoard.Size = new System.Drawing.Size(394, 258);
+            this.tablelayoutGameBoard.Size = new System.Drawing.Size(394, 237);
             this.tablelayoutGameBoard.TabIndex = 3;
             // 
             // btnRunTurn
             // 
-            this.btnRunTurn.Location = new System.Drawing.Point(403, 292);
+            this.btnRunTurn.Location = new System.Drawing.Point(403, 268);
             this.btnRunTurn.Name = "btnRunTurn";
             this.btnRunTurn.Size = new System.Drawing.Size(75, 23);
             this.btnRunTurn.TabIndex = 4;
@@ -115,7 +118,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(3, 292);
+            this.radioButton1.Location = new System.Drawing.Point(3, 268);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(54, 17);
             this.radioButton1.TabIndex = 5;
@@ -126,7 +129,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(203, 292);
+            this.radioButton2.Location = new System.Drawing.Point(203, 268);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(57, 17);
             this.radioButton2.TabIndex = 6;
@@ -138,7 +141,7 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.txtUnitInfo, 3);
             this.txtUnitInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUnitInfo.Location = new System.Drawing.Point(3, 329);
+            this.txtUnitInfo.Location = new System.Drawing.Point(3, 305);
             this.txtUnitInfo.Multiline = true;
             this.txtUnitInfo.Name = "txtUnitInfo";
             this.txtUnitInfo.Size = new System.Drawing.Size(794, 118);
@@ -156,7 +159,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(394, 19);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(394, 16);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
             // lblPlayerHP
@@ -177,19 +180,41 @@
             this.lblEnemyHP.TabIndex = 1;
             this.lblEnemyHP.Text = "label3";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.runTestToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // runTestToolStripMenuItem
+            // 
+            this.runTestToolStripMenuItem.Name = "runTestToolStripMenuItem";
+            this.runTestToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.runTestToolStripMenuItem.Text = "Run Test";
+            this.runTestToolStripMenuItem.Click += new System.EventHandler(this.RunTestToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -206,6 +231,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label lblPlayerHP;
         private System.Windows.Forms.Label lblEnemyHP;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem runTestToolStripMenuItem;
     }
 }
 
